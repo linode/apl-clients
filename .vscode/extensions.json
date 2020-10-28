@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "quicktype.quicktype",
+    "xyz.local-history"
+  ]
+}

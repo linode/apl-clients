@@ -1,0 +1,29 @@
+name: Build and publish npm packages
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '*'
+jobs:
+  check-build-push-clients:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check for changes
+        run: |
+          bin/check-changes.sh
+          echo "::set-output name=has-changes::$?"
+      - if: '!${{ steps.vars.outputs.has-changes }}'
+        run: echo "Skipping building packages"
+      - uses: actions/setup-node@v1
+        if: '${{ steps.vars.outputs.has-changes }}'
+        with:
+          node-version: '14'
+      - name: Build and publish clients
+        if: ${{ steps.vars.outputs.has-changes }}
+        run: |
+          sudo apt-get install moreutils
+          bin/generate-all.sh
+          bin/release-all.sh

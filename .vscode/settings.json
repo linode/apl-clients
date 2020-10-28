@@ -1,0 +1,9 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "files.associations": {
+    "CODE_OF_CONDUCT": "markdown",
+    "CONTRIBUTING": "markdown"
+  }
+}

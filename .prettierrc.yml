@@ -1,0 +1,10 @@
+tabWidth: 2
+semi: false
+trailingComma: all
+singleQuote: true
+printWidth: 120
+overrides:
+  - files:
+      - '*.md'
+    options:
+      proseWrap: never
