@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: '14'
       - name: Build and publish clients
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
