@@ -28,6 +28,6 @@ jobs:
         if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
           bin/generate-all.sh
           bin/release-all.sh
