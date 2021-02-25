@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '14'
       - name: Build and publish clients
-        if: ${{ steps.vars.outputs.has-changes }}
+        if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
           bin/generate-all.sh

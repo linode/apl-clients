@@ -49,7 +49,11 @@ generate_client() {
 }
 
  set_package_json() {
+    set -x 
     echo "Updating  $TARGET_PACKAGE_JSON file.."
+    ls -lah ${TARGET_PACKAGE_JSON}
+    whoami
+    id
 
     jq \
     --arg type 'git' \
