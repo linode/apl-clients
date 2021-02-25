@@ -45,6 +45,7 @@ generate_client() {
     -i /local/${OPENAPI_DOC} \
     -o /local/${TARGET_DIR} \
     -g typescript-node \
+    --user 1001:1001 \
     --additional-properties supportsES6=true,npmName=${TARGET_NPM_NAME}
 }
 
