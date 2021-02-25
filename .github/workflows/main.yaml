@@ -24,9 +24,10 @@ jobs:
           node-version: '14'
       - name: Build and publish clients
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
           bin/generate-all.sh
           bin/release-all.sh
