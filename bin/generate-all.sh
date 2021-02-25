@@ -3,3 +3,4 @@
 rm -rf vendors/client >/dev/null
 bin/generate-client.sh harbor node
 bin/generate-client.sh keycloak node
+bin/generate-client.sh gitea node
