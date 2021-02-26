@@ -26,7 +26,7 @@ jobs:
   build-push-clients:
     runs-on: ubuntu-latest
     needs: check
-    if: ${{ steps.vars.outputs.hasdiff }}
+    if: ${{ jobs.check.steps.vars.outputs.hasdiff }}
     steps:
       - uses: actions/setup-node@v2
         with:
