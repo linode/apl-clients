@@ -6,4 +6,5 @@ for each in "harbor/node" "keycloak/node" "gitea/node"; do
     exit 0
   fi
 done
+echo "No changes found, skipping!"
 exit 1

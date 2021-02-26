@@ -12,13 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check for changes
-        id: vars
-        run: |
-          echo "::set-output name=has-changes::$(bin/check-changes.sh)"
-      - if: '!${{ steps.vars.outputs.has-changes }}'
-        run: echo "Skipping building packages"
+        run: bin/check-changes.sh
       - uses: actions/setup-node@v2
-        if: '${{ steps.vars.outputs.has-changes }}'
         with:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
@@ -26,7 +21,6 @@ jobs:
       - name: Build and publish clients
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
           bin/generate-all.sh

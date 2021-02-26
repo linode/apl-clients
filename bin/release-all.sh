@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-
+set -e
 for each in "harbor/node" "keycloak/node" "gitea/node"; do
   pkg=${each%%/*}
   type=${each##*/}
