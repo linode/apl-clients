@@ -24,13 +24,13 @@ jobs:
             echo "::set-output name=diff::0"
           fi
       - uses: actions/setup-node@v2
-        if: '! ${{ steps.vars.outputs.diff }}'
+        if: steps.vars.outputs.diff == 1
         with:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@redkubes'
       - name: Build and publish clients
-        if: '! ${{ steps.vars.outputs.diff }}'
+        if: steps.vars.outputs.diff == 1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
