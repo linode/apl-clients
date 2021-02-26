@@ -6,7 +6,7 @@ on:
     tags-ignore:
       - '*'
 jobs:
-  check:
+  check-build-push-clients:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,11 +17,11 @@ jobs:
         id: vars
         run: |
           if ! bin/diff.sh; then
-            echo "Changes found, continuing with next step."
-            echo "::set-output name=diff::1"
+            echo 'Changes found, continuing with next step.''
+            echo '::set-output name=diff::1'
           else
-            echo "No changes found, skipping!"
-            echo "::set-output name=diff::0"
+            echo 'No changes found, skipping!'
+            echo '::set-output name=diff::0'
           fi
       - uses: actions/setup-node@v2
         if: steps.vars.outputs.diff == 1

@@ -4,12 +4,12 @@ set -e
 
 DIR=$(pwd)
 ORG=redkubes
-REPO="ssh://git@github.com/redkubes/otomi-clients.git"
+REPO='ssh://git@github.com/redkubes/otomi-clients.git'
 
 VENDOR="$1"
 TYPE="${2:-node}"
 OPENAPI_DOC="./vendors/openapi/${VENDOR}.json"
-REGISTRY="https://npm.pkg.github.com/"
+REGISTRY='https://npm.pkg.github.com/'
 TARGET_DIR="./vendors/client/${VENDOR}/${TYPE}"
 TARGET_PACKAGE_JSON="${TARGET_DIR}/package.json"
 TARGET_NPM_NAME="@${ORG}/$VENDOR-client-${TYPE}"
@@ -21,7 +21,7 @@ validate() {
     fi
 
     if [ -z "$VENDOR" ]; then
-        echo "No vendor argument supplied.\nUsage:\n\t./bin/generate-client.sh <vendor-name>"
+        echo 'No vendor argument supplied.\nUsage:\n\t./bin/generate-client.sh <vendor-name>'
         exit 1
     fi
 
