@@ -14,8 +14,7 @@ jobs:
       - name: Check for changes
         id: vars
         run: |
-          bin/check-changes.sh
-          echo "::set-output name=has-changes::$?"
+          echo "::set-output name=has-changes::$(bin/check-changes.sh)"
       - if: '!${{ steps.vars.outputs.has-changes }}'
         run: echo "Skipping building packages"
       - uses: actions/setup-node@v2
