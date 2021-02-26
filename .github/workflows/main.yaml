@@ -8,8 +8,6 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    outputs:
-      hasdiff: ${{ steps.vars.outputs.diff }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,17 +23,14 @@ jobs:
             echo "No changes found, skipping!"
             echo "::set-output name=diff::0"
           fi
-  build-push-clients:
-    runs-on: ubuntu-latest
-    needs: check
-    if: '! ${{ needs.check.outputs.hasdiff }}'
-    steps:
       - uses: actions/setup-node@v2
+        if: '! ${{ steps.vars.outputs.diff }}'
         with:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@redkubes'
       - name: Build and publish clients
+        if: '! ${{ steps.vars.outputs.diff }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
