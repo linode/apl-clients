@@ -18,16 +18,17 @@ jobs:
           echo "::set-output name=has-changes::$?"
       - if: '!${{ steps.vars.outputs.has-changes }}'
         run: echo "Skipping building packages"
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         if: '${{ steps.vars.outputs.has-changes }}'
         with:
           node-version: '14'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@redkubes'
       - name: Build and publish clients
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: '${{ steps.vars.outputs.has-changes }}'
         run: |
           sudo apt-get install moreutils
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
           bin/generate-all.sh
           bin/release-all.sh
