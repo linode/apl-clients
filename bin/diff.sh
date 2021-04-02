@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 . bin/common.sh
 
-diff() {
+differ() {
   local pkg=$1
   if diff $pkg; then
     exit 1
   fi
 }
 
-for_each diff
+for_each differ
