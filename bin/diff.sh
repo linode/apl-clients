@@ -1,8 +1,11 @@
-#!/usr/bin/env sh
-for each in 'harbor/node' 'keycloak/node' 'gitea/node'; do
-  pkg=${each%%/*}
-  if git --no-pager log -1 --stat --oneline --name-only | grep "vendors/openapi/$pkg.json" >/dev/null; then
+#!/usr/bin/env bash
+. bin/common.sh
+
+diff() {
+  local pkg=$1
+  if diff $pkg; then
     exit 1
   fi
-done
-exit 0
+}
+
+for_each diff

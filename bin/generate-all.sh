@@ -1,6 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+. bin/common.sh
 
-rm -rf vendors/client >/dev/null
-bin/generate-client.sh harbor node
-bin/generate-client.sh keycloak node
-bin/generate-client.sh gitea node
+generate_client() {
+  local pkg=$1
+  if diff $pkg; then
+    echo "Generating newer client: $pkg-$type"
+    bin/generate-client.sh $pkg
+  fi
+}
+
+for_each generate_client
