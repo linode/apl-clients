@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 [ -n "$DEBUG" ] && set -x
 
 clients=('harbor/node' 'keycloak/node' 'gitea/node')
 
 diff() {
   local pkg=$1
-  if git --no-pager log -1 --stat --oneline --name-only | grep "vendors/openapi/$pkg.json" >/dev/null; then
+  if git --no-pager log -${#clients[@]} --stat --oneline --name-only | grep "vendors/openapi/$pkg.json" >/dev/null; then
     return 0
   fi
   return 1

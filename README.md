@@ -30,7 +30,7 @@ In order for others to use the generated client package, please commit the code 
 
 ### NPM: authentication and publication
 
-To control npm access, like wiring up your own private repo please follow these instructions:
+To control npm access, like wiring up a private repo please follow these instructions:
 
 - [Authenticating with a personal access token](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-with-a-personal-access-token)
 - [Creating a personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
