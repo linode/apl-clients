@@ -3,12 +3,14 @@
   "info": {
     "title": "Keycloak Admin REST API",
     "description": "This is a REST API reference for the Keycloak Admin",
-    "version": "11.0.0"
+    "version": "15.0.0"
   },
   "paths": {
     "/": {
       "get": {
-        "tags": ["Root"],
+        "tags": [
+          "Root"
+        ],
         "summary": "Get themes, social providers, auth providers, and event listeners available on this server",
         "responses": {
           "2XX": {
@@ -24,7 +26,9 @@
         }
       },
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Import a realm   Imports a realm from a full representation of that realm.",
         "requestBody": {
           "description": "JSON representation of the realm",
@@ -46,7 +50,9 @@
     },
     "/{id}/name": {
       "get": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328",
         "responses": {
           "2XX": {
@@ -76,7 +82,9 @@
     },
     "/{realm}": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get the top-level representation of the realm   It will not include nested information like User and Client representations.",
         "responses": {
           "2XX": {
@@ -92,7 +100,9 @@
         }
       },
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
         "requestBody": {
           "content": {
@@ -111,7 +121,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Delete the realm",
         "responses": {
           "2XX": {
@@ -134,7 +146,9 @@
     },
     "/{realm}/admin-events": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
         "parameters": [
           {
@@ -244,7 +258,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/AdminEventRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -253,7 +268,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Delete all admin events",
         "responses": {
           "2XX": {
@@ -276,7 +293,9 @@
     },
     "/{realm}/attack-detection/brute-force/users": {
       "delete": {
-        "tags": ["Attack Detection"],
+        "tags": [
+          "Attack Detection"
+        ],
         "summary": "Clear any user login failures for all users   This can release temporary disabled users",
         "responses": {
           "2XX": {
@@ -299,7 +318,9 @@
     },
     "/{realm}/attack-detection/brute-force/users/{userId}": {
       "get": {
-        "tags": ["Attack Detection"],
+        "tags": [
+          "Attack Detection"
+        ],
         "summary": "Get status of a username in brute force detection",
         "responses": {
           "2XX": {
@@ -316,7 +337,9 @@
         }
       },
       "delete": {
-        "tags": ["Attack Detection"],
+        "tags": [
+          "Attack Detection"
+        ],
         "summary": "Clear any user login failures for the user   This can release temporary disabled user",
         "responses": {
           "2XX": {
@@ -348,8 +371,10 @@
     },
     "/{realm}/authentication/authenticator-providers": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get authenticator providers   Returns a list of authenticator providers.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authenticator providers   Returns a stream of authenticator providers.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -382,8 +407,10 @@
     },
     "/{realm}/authentication/client-authenticator-providers": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get client authenticator providers   Returns a list of client authenticator providers.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get client authenticator providers   Returns a stream of client authenticator providers.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -416,7 +443,9 @@
     },
     "/{realm}/authentication/config-description/{providerId}": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get authenticator provider’s configuration description",
         "responses": {
           "2XX": {
@@ -455,7 +484,9 @@
     },
     "/{realm}/authentication/config/{id}": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get authenticator configuration",
         "responses": {
           "2XX": {
@@ -471,7 +502,9 @@
         }
       },
       "put": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Update authenticator configuration",
         "requestBody": {
           "description": "JSON describing new state of authenticator configuration",
@@ -491,7 +524,9 @@
         }
       },
       "delete": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Delete authenticator configuration",
         "responses": {
           "2XX": {
@@ -524,7 +559,9 @@
     },
     "/{realm}/authentication/executions": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Add new authentication execution",
         "requestBody": {
           "description": "JSON model describing authentication execution",
@@ -558,7 +595,9 @@
     },
     "/{realm}/authentication/executions/{executionId}": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get Single Execution",
         "responses": {
           "2XX": {
@@ -567,7 +606,9 @@
         }
       },
       "delete": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Delete execution",
         "responses": {
           "2XX": {
@@ -600,7 +641,9 @@
     },
     "/{realm}/authentication/executions/{executionId}/config": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Update execution with new configuration",
         "requestBody": {
           "description": "JSON with new configuration",
@@ -644,7 +687,9 @@
     },
     "/{realm}/authentication/executions/{executionId}/lower-priority": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Lower execution’s priority",
         "responses": {
           "2XX": {
@@ -677,7 +722,9 @@
     },
     "/{realm}/authentication/executions/{executionId}/raise-priority": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Raise execution’s priority",
         "responses": {
           "2XX": {
@@ -710,8 +757,10 @@
     },
     "/{realm}/authentication/flows": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get authentication flows   Returns a list of authentication flows.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authentication flows   Returns a stream of authentication flows.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -720,7 +769,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/AuthenticationFlowRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -729,7 +779,9 @@
         }
       },
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Create a new authentication flow",
         "requestBody": {
           "description": "Authentication flow representation",
@@ -763,7 +815,9 @@
     },
     "/{realm}/authentication/flows/{flowAlias}/copy": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object",
         "requestBody": {
           "description": "JSON containing 'newName' attribute",
@@ -808,7 +862,9 @@
     },
     "/{realm}/authentication/flows/{flowAlias}/executions": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get authentication executions for a flow",
         "responses": {
           "2XX": {
@@ -817,7 +873,9 @@
         }
       },
       "put": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Update authentication executions of a Flow",
         "requestBody": {
           "description": "AuthenticationExecutionInfoRepresentation",
@@ -861,7 +919,9 @@
     },
     "/{realm}/authentication/flows/{flowAlias}/executions/execution": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Add new authentication execution to a flow",
         "requestBody": {
           "description": "New execution JSON data containing 'provider' attribute",
@@ -906,7 +966,9 @@
     },
     "/{realm}/authentication/flows/{flowAlias}/executions/flow": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Add new flow with new execution to existing flow",
         "requestBody": {
           "description": "New authentication flow / execution JSON data containing 'alias', 'type', 'provider', and 'description' attributes",
@@ -951,7 +1013,9 @@
     },
     "/{realm}/authentication/flows/{id}": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get authentication flow for id",
         "responses": {
           "2XX": {
@@ -967,7 +1031,9 @@
         }
       },
       "put": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Update an authentication flow",
         "requestBody": {
           "description": "Authentication flow representation",
@@ -987,7 +1053,9 @@
         }
       },
       "delete": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Delete an authentication flow",
         "responses": {
           "2XX": {
@@ -1020,8 +1088,10 @@
     },
     "/{realm}/authentication/form-action-providers": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get form action providers   Returns a list of form action providers.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get form action providers   Returns a stream of form action providers.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -1054,8 +1124,10 @@
     },
     "/{realm}/authentication/form-providers": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get form providers   Returns a list of form providers.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get form providers   Returns a stream of form providers.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -1088,7 +1160,9 @@
     },
     "/{realm}/authentication/per-client-config-description": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get configuration descriptions for all clients",
         "responses": {
           "2XX": {
@@ -1119,7 +1193,9 @@
     },
     "/{realm}/authentication/register-required-action": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Register a new required actions",
         "requestBody": {
           "description": "JSON containing 'providerId', and 'name' attributes.",
@@ -1154,8 +1230,10 @@
     },
     "/{realm}/authentication/required-actions": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get required actions   Returns a list of required actions.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get required actions   Returns a stream of required actions.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -1164,7 +1242,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RequiredActionProviderRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1187,7 +1266,9 @@
     },
     "/{realm}/authentication/required-actions/{alias}": {
       "get": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Get required action for alias",
         "responses": {
           "2XX": {
@@ -1203,7 +1284,9 @@
         }
       },
       "put": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Update required action",
         "requestBody": {
           "description": "JSON describing new state of required action",
@@ -1223,7 +1306,9 @@
         }
       },
       "delete": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Delete required action",
         "responses": {
           "2XX": {
@@ -1256,7 +1341,9 @@
     },
     "/{realm}/authentication/required-actions/{alias}/lower-priority": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Lower required action’s priority",
         "responses": {
           "2XX": {
@@ -1289,7 +1376,9 @@
     },
     "/{realm}/authentication/required-actions/{alias}/raise-priority": {
       "post": {
-        "tags": ["Authentication Management"],
+        "tags": [
+          "Authentication Management"
+        ],
         "summary": "Raise required action’s priority",
         "responses": {
           "2XX": {
@@ -1322,8 +1411,10 @@
     },
     "/{realm}/authentication/unregistered-required-actions": {
       "get": {
-        "tags": ["Authentication Management"],
-        "summary": "Get unregistered required actions   Returns a list of unregistered required actions.",
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get unregistered required actions   Returns a stream of unregistered required actions.",
         "responses": {
           "2XX": {
             "description": "success",
@@ -1356,7 +1447,9 @@
     },
     "/{realm}/clear-keys-cache": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Clear cache of external public keys (Public keys of clients or Identity providers)",
         "responses": {
           "2XX": {
@@ -1379,7 +1472,9 @@
     },
     "/{realm}/clear-realm-cache": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Clear realm cache",
         "responses": {
           "2XX": {
@@ -1402,7 +1497,9 @@
     },
     "/{realm}/clear-user-cache": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Clear user cache",
         "responses": {
           "2XX": {
@@ -1425,7 +1522,9 @@
     },
     "/{realm}/client-description-converter": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Base path for importing clients under this realm.",
         "requestBody": {
           "content": {
@@ -1463,9 +1562,123 @@
         }
       ]
     },
+    "/{realm}/client-policies/policies": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientPoliciesRepresentation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientPoliciesRepresentation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-policies/profiles": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "include-global-profiles",
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientProfilesRepresentation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientProfilesRepresentation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/client-registration-policy/providers": {
       "get": {
-        "tags": ["Client Registration Policy"],
+        "tags": [
+          "Client Registration Policy"
+        ],
         "summary": "Base path for retrieve providers with the configProperties properly filled",
         "responses": {
           "2XX": {
@@ -1475,7 +1688,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ComponentTypeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1498,7 +1712,9 @@
     },
     "/{realm}/client-scopes": {
       "get": {
-        "tags": ["Client Scopes"],
+        "tags": [
+          "Client Scopes"
+        ],
         "summary": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
         "responses": {
           "2XX": {
@@ -1508,7 +1724,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1517,7 +1734,9 @@
         }
       },
       "post": {
-        "tags": ["Client Scopes"],
+        "tags": [
+          "Client Scopes"
+        ],
         "summary": "Create a new client scope   Client Scope’s name must be unique!",
         "requestBody": {
           "content": {
@@ -1550,7 +1769,9 @@
     },
     "/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mapper by id",
         "responses": {
           "2XX": {
@@ -1566,7 +1787,9 @@
         }
       },
       "put": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Update the mapper",
         "requestBody": {
           "content": {
@@ -1585,7 +1808,9 @@
         }
       },
       "delete": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Delete the mapper",
         "responses": {
           "2XX": {
@@ -1626,7 +1851,9 @@
     },
     "/{realm}/client-scopes/{id}": {
       "get": {
-        "tags": ["Client Scopes"],
+        "tags": [
+          "Client Scopes"
+        ],
         "summary": "Get representation of the client scope",
         "responses": {
           "2XX": {
@@ -1642,7 +1869,9 @@
         }
       },
       "put": {
-        "tags": ["Client Scopes"],
+        "tags": [
+          "Client Scopes"
+        ],
         "summary": "Update the client scope",
         "requestBody": {
           "content": {
@@ -1661,7 +1890,9 @@
         }
       },
       "delete": {
-        "tags": ["Client Scopes"],
+        "tags": [
+          "Client Scopes"
+        ],
         "summary": "Delete the client scope",
         "responses": {
           "2XX": {
@@ -1694,7 +1925,9 @@
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
       "post": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Create multiple mappers",
         "requestBody": {
           "content": {
@@ -1740,7 +1973,9 @@
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/models": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mappers",
         "responses": {
           "2XX": {
@@ -1750,7 +1985,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1759,7 +1995,9 @@
         }
       },
       "post": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Create a mapper",
         "requestBody": {
           "content": {
@@ -1802,7 +2040,9 @@
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
           "2XX": {
@@ -1812,7 +2052,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1852,49 +2093,11 @@
         }
       ]
     },
-    "/{realm}/client-scopes/{id}/scope-mappings": {
-      "get": {
-        "tags": ["Scope Mappings"],
-        "summary": "Get all scope mappings for the client",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MappingsRepresentation"
-                }
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        }
-      ]
-    },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
           "2XX": {
@@ -1904,7 +2107,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1913,7 +2117,9 @@
         }
       },
       "post": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
           "content": {
@@ -1935,7 +2141,9 @@
         }
       },
       "delete": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
           "content": {
@@ -1990,7 +2198,9 @@
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
           "2XX": {
@@ -2000,7 +2210,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2042,7 +2253,9 @@
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "parameters": [
           {
@@ -2063,7 +2276,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2105,7 +2319,9 @@
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
           "2XX": {
@@ -2115,7 +2331,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2124,7 +2341,9 @@
         }
       },
       "post": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
           "content": {
@@ -2146,7 +2365,9 @@
         }
       },
       "delete": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
           "content": {
@@ -2192,7 +2413,9 @@
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
           "2XX": {
@@ -2202,7 +2425,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2235,7 +2459,9 @@
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "parameters": [
           {
@@ -2256,7 +2482,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2289,7 +2516,9 @@
     },
     "/{realm}/client-session-stats": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get client session stats   Returns a JSON map.",
         "responses": {
           "2XX": {
@@ -2323,7 +2552,9 @@
     },
     "/{realm}/clients": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "parameters": [
           {
@@ -2357,6 +2588,14 @@
           },
           {
             "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
             "name": "search",
             "description": "whether this is a search query or a getClientById query",
             "schema": {
@@ -2382,7 +2621,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2391,7 +2631,9 @@
         }
       },
       "post": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Create a new client   Client’s client_id must be unique!",
         "requestBody": {
           "content": {
@@ -2424,7 +2666,9 @@
     },
     "/{realm}/clients-initial-access": {
       "get": {
-        "tags": ["Client Initial Access"],
+        "tags": [
+          "Client Initial Access"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2433,7 +2677,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientInitialAccessPresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2442,7 +2687,9 @@
         }
       },
       "post": {
-        "tags": ["Client Initial Access"],
+        "tags": [
+          "Client Initial Access"
+        ],
         "summary": "Create a new initial access token.",
         "requestBody": {
           "content": {
@@ -2482,7 +2729,9 @@
     },
     "/{realm}/clients-initial-access/{id}": {
       "delete": {
-        "tags": ["Client Initial Access"],
+        "tags": [
+          "Client Initial Access"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -2513,7 +2762,9 @@
     },
     "/{realm}/clients/{id1}/protocol-mappers/models/{id2}": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mapper by id",
         "responses": {
           "2XX": {
@@ -2529,7 +2780,9 @@
         }
       },
       "put": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Update the mapper",
         "requestBody": {
           "content": {
@@ -2548,7 +2801,9 @@
         }
       },
       "delete": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Delete the mapper",
         "responses": {
           "2XX": {
@@ -2589,7 +2844,9 @@
     },
     "/{realm}/clients/{id}": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get representation of the client",
         "responses": {
           "2XX": {
@@ -2605,7 +2862,9 @@
         }
       },
       "put": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Update the client",
         "requestBody": {
           "content": {
@@ -2624,7 +2883,9 @@
         }
       },
       "delete": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Delete the client",
         "responses": {
           "2XX": {
@@ -2657,7 +2918,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}": {
       "get": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Get key info",
         "responses": {
           "2XX": {
@@ -2706,7 +2969,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}/download": {
       "post": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Get a keystore file for the client, containing private key and public certificate",
         "requestBody": {
           "description": "Keystore configuration as JSON",
@@ -2767,7 +3032,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}/generate": {
       "post": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Generate a new certificate with new key pair",
         "responses": {
           "2XX": {
@@ -2816,7 +3083,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
       "post": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
         "requestBody": {
           "description": "Keystore configuration as JSON",
@@ -2877,7 +3146,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}/upload": {
       "post": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Upload certificate and eventually private key",
         "responses": {
           "2XX": {
@@ -2926,7 +3197,9 @@
     },
     "/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {
       "post": {
-        "tags": ["Client Attribute Certificate"],
+        "tags": [
+          "Client Attribute Certificate"
+        ],
         "summary": "Upload only certificate, not private key",
         "responses": {
           "2XX": {
@@ -2975,7 +3248,9 @@
     },
     "/{realm}/clients/{id}/client-secret": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get the client secret",
         "responses": {
           "2XX": {
@@ -2991,7 +3266,9 @@
         }
       },
       "post": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Generate a new secret for the client",
         "responses": {
           "2XX": {
@@ -3031,7 +3308,9 @@
     },
     "/{realm}/clients/{id}/default-client-scopes": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get default client scopes.",
         "responses": {
           "2XX": {
@@ -3041,7 +3320,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3074,7 +3354,9 @@
     },
     "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
       "put": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -3082,7 +3364,9 @@
         }
       },
       "delete": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -3123,7 +3407,9 @@
     },
     "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Create JSON with payload of example access token",
         "parameters": [
           {
@@ -3179,9 +3465,132 @@
         }
       ]
     },
+    "/{realm}/clients/{id}/evaluate-scopes/generate-example-id-token": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create JSON with payload of example id token",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDToken"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create JSON with payload of example user info",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
         "parameters": [
           {
@@ -3201,7 +3610,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3234,7 +3644,9 @@
     },
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
         "parameters": [
           {
@@ -3254,7 +3666,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3297,7 +3710,9 @@
     },
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
         "parameters": [
           {
@@ -3317,7 +3732,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3360,7 +3776,9 @@
     },
     "/{realm}/clients/{id}/installation/providers/{providerId}": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -3401,7 +3819,9 @@
     },
     "/{realm}/clients/{id}/management/permissions": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -3417,7 +3837,9 @@
         }
       },
       "put": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
@@ -3467,7 +3889,9 @@
     },
     "/{realm}/clients/{id}/nodes": {
       "post": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak",
         "requestBody": {
           "content": {
@@ -3511,7 +3935,9 @@
     },
     "/{realm}/clients/{id}/nodes/{node}": {
       "delete": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Unregister a cluster node from the client",
         "responses": {
           "2XX": {
@@ -3553,7 +3979,9 @@
     },
     "/{realm}/clients/{id}/offline-session-count": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }",
         "responses": {
           "2XX": {
@@ -3594,7 +4022,9 @@
     },
     "/{realm}/clients/{id}/offline-sessions": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
         "parameters": [
           {
@@ -3626,7 +4056,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3659,7 +4090,9 @@
     },
     "/{realm}/clients/{id}/optional-client-scopes": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get optional client scopes.",
         "responses": {
           "2XX": {
@@ -3669,7 +4102,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3702,7 +4136,9 @@
     },
     "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
       "put": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -3710,7 +4146,9 @@
         }
       },
       "delete": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -3751,7 +4189,9 @@
     },
     "/{realm}/clients/{id}/protocol-mappers/add-models": {
       "post": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Create multiple mappers",
         "requestBody": {
           "content": {
@@ -3797,7 +4237,9 @@
     },
     "/{realm}/clients/{id}/protocol-mappers/models": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mappers",
         "responses": {
           "2XX": {
@@ -3807,7 +4249,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3816,7 +4259,9 @@
         }
       },
       "post": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Create a mapper",
         "requestBody": {
           "content": {
@@ -3859,7 +4304,9 @@
     },
     "/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
       "get": {
-        "tags": ["Protocol Mappers"],
+        "tags": [
+          "Protocol Mappers"
+        ],
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
           "2XX": {
@@ -3869,7 +4316,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3911,7 +4359,9 @@
     },
     "/{realm}/clients/{id}/push-revocation": {
       "post": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it.",
         "responses": {
           "2XX": {
@@ -3951,7 +4401,9 @@
     },
     "/{realm}/clients/{id}/registration-access-token": {
       "post": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Generate a new registration access token for the client",
         "responses": {
           "2XX": {
@@ -3991,7 +4443,9 @@
     },
     "/{realm}/clients/{id}/roles": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get all roles for the realm or client",
         "parameters": [
           {
@@ -4035,7 +4489,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 }
               }
             }
@@ -4043,7 +4501,9 @@
         }
       },
       "post": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Create a new role for the realm or client",
         "requestBody": {
           "content": {
@@ -4086,7 +4546,9 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get a role by name",
         "responses": {
           "2XX": {
@@ -4102,7 +4564,9 @@
         }
       },
       "put": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Update a role by name",
         "requestBody": {
           "content": {
@@ -4121,7 +4585,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Delete a role by name",
         "responses": {
           "2XX": {
@@ -4164,7 +4630,9 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get composites of the role",
         "responses": {
           "2XX": {
@@ -4174,7 +4642,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4183,7 +4652,9 @@
         }
       },
       "post": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Add a composite to the role",
         "requestBody": {
           "content": {
@@ -4205,7 +4676,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
           "description": "roles to remove",
@@ -4262,7 +4735,9 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites/clients/{clientUuid}": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get client-level roles for the client that are in the role’s composite",
         "responses": {
           "2XX": {
@@ -4272,7 +4747,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4324,7 +4800,9 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
           "2XX": {
@@ -4334,7 +4812,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4377,13 +4856,15 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/groups": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return List of Groups that have the specified role name",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of groups that have the specified role name",
         "parameters": [
           {
             "in": "query",
             "name": "briefRepresentation",
-            "description": "if false, return a full representation of the GroupRepresentation objects",
+            "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
             "schema": {
               "type": "boolean"
             },
@@ -4392,6 +4873,7 @@
           {
             "in": "query",
             "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -4401,6 +4883,7 @@
           {
             "in": "query",
             "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -4416,7 +4899,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4448,6 +4932,7 @@
         {
           "in": "path",
           "name": "role-name",
+          "description": "the role name.",
           "required": true,
           "schema": {
             "type": "string"
@@ -4458,8 +4943,10 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
             "description": "success",
@@ -4474,8 +4961,10 @@
         }
       },
       "put": {
-        "tags": ["Roles"],
-        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4533,12 +5022,15 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/users": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return List of Users that have the specified role name",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of users that have the specified role name.",
         "parameters": [
           {
             "in": "query",
             "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -4548,6 +5040,7 @@
           {
             "in": "query",
             "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -4563,7 +5056,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4595,46 +5089,7 @@
         {
           "in": "path",
           "name": "role-name",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        }
-      ]
-    },
-    "/{realm}/clients/{id}/scope-mappings": {
-      "get": {
-        "tags": ["Scope Mappings"],
-        "summary": "Get all scope mappings for the client",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MappingsRepresentation"
-                }
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "description": "the role name.",
           "required": true,
           "schema": {
             "type": "string"
@@ -4645,7 +5100,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
           "2XX": {
@@ -4655,7 +5112,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4664,7 +5122,9 @@
         }
       },
       "post": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
           "content": {
@@ -4686,7 +5146,9 @@
         }
       },
       "delete": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
           "content": {
@@ -4741,7 +5203,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
           "2XX": {
@@ -4751,7 +5215,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4793,7 +5258,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "parameters": [
           {
@@ -4814,7 +5281,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4856,7 +5324,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/realm": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
           "2XX": {
@@ -4866,7 +5336,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4875,7 +5346,9 @@
         }
       },
       "post": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
           "content": {
@@ -4897,7 +5370,9 @@
         }
       },
       "delete": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
           "content": {
@@ -4943,7 +5418,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/realm/available": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
           "2XX": {
@@ -4953,7 +5430,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4986,7 +5464,9 @@
     },
     "/{realm}/clients/{id}/scope-mappings/realm/composite": {
       "get": {
-        "tags": ["Scope Mappings"],
+        "tags": [
+          "Scope Mappings"
+        ],
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "parameters": [
           {
@@ -5007,7 +5487,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5040,7 +5521,9 @@
     },
     "/{realm}/clients/{id}/service-account-user": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get a user dedicated to the service account",
         "responses": {
           "2XX": {
@@ -5080,7 +5563,9 @@
     },
     "/{realm}/clients/{id}/session-count": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }",
         "responses": {
           "2XX": {
@@ -5121,7 +5606,9 @@
     },
     "/{realm}/clients/{id}/test-nodes-available": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.",
         "responses": {
           "2XX": {
@@ -5161,7 +5648,9 @@
     },
     "/{realm}/clients/{id}/user-sessions": {
       "get": {
-        "tags": ["Clients"],
+        "tags": [
+          "Clients"
+        ],
         "summary": "Get user sessions for client   Returns a list of user sessions associated with this client",
         "parameters": [
           {
@@ -5193,7 +5682,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5226,7 +5716,9 @@
     },
     "/{realm}/components": {
       "get": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -5261,7 +5753,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ComponentRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5270,7 +5763,9 @@
         }
       },
       "post": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -5302,7 +5797,9 @@
     },
     "/{realm}/components/{id}": {
       "get": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -5317,7 +5814,9 @@
         }
       },
       "put": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -5335,7 +5834,9 @@
         }
       },
       "delete": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5366,7 +5867,9 @@
     },
     "/{realm}/components/{id}/sub-component-types": {
       "get": {
-        "tags": ["Component"],
+        "tags": [
+          "Component"
+        ],
         "summary": "List of subcomponent types that are available to configure for a particular parent component.",
         "parameters": [
           {
@@ -5386,7 +5889,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ComponentTypeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5418,7 +5922,9 @@
     },
     "/{realm}/credential-registrators": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -5427,7 +5933,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5450,7 +5957,9 @@
     },
     "/{realm}/default-default-client-scopes": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get realm default client scopes.",
         "responses": {
           "2XX": {
@@ -5460,7 +5969,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5483,7 +5993,9 @@
     },
     "/{realm}/default-default-client-scopes/{clientScopeId}": {
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5491,7 +6003,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5522,7 +6036,9 @@
     },
     "/{realm}/default-groups": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get group hierarchy.",
         "responses": {
           "2XX": {
@@ -5532,7 +6048,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5555,7 +6072,9 @@
     },
     "/{realm}/default-groups/{groupId}": {
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5563,7 +6082,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5594,7 +6115,9 @@
     },
     "/{realm}/default-optional-client-scopes": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get realm optional client scopes.",
         "responses": {
           "2XX": {
@@ -5604,7 +6127,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5627,7 +6151,9 @@
     },
     "/{realm}/default-optional-client-scopes/{clientScopeId}": {
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5635,7 +6161,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5666,7 +6194,9 @@
     },
     "/{realm}/events": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get events   Returns all events, or filters them based on URL query parameters listed here",
         "parameters": [
           {
@@ -5755,7 +6285,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/EventRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5764,7 +6295,9 @@
         }
       },
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Delete all events",
         "responses": {
           "2XX": {
@@ -5787,7 +6320,9 @@
     },
     "/{realm}/events/config": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get the events provider configuration   Returns JSON object with events provider configuration",
         "responses": {
           "2XX": {
@@ -5803,7 +6338,9 @@
         }
       },
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Update the events provider   Change the events provider and/or its configuration",
         "requestBody": {
           "content": {
@@ -5836,7 +6373,9 @@
     },
     "/{realm}/group-by-path/{path}": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -5874,7 +6413,9 @@
     },
     "/{realm}/groups": {
       "get": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Get group hierarchy.",
         "parameters": [
           {
@@ -5920,7 +6461,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5929,7 +6471,9 @@
         }
       },
       "post": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "create or add a top level realm groupSet or create child.",
         "requestBody": {
           "content": {
@@ -5962,7 +6506,9 @@
     },
     "/{realm}/groups/count": {
       "get": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Returns the groups counts.",
         "parameters": [
           {
@@ -6011,7 +6557,9 @@
     },
     "/{realm}/groups/{id}": {
       "get": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6026,7 +6574,9 @@
         }
       },
       "put": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Update group, ignores subgroups.",
         "requestBody": {
           "content": {
@@ -6045,7 +6595,9 @@
         }
       },
       "delete": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -6076,7 +6628,9 @@
     },
     "/{realm}/groups/{id}/children": {
       "post": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Set or create child.",
         "requestBody": {
           "content": {
@@ -6118,7 +6672,9 @@
     },
     "/{realm}/groups/{id}/management/permissions": {
       "get": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -6134,7 +6690,9 @@
         }
       },
       "put": {
-        "tags": ["Groups"],
+        "tags": [
+          "Groups"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
@@ -6183,8 +6741,10 @@
     },
     "/{realm}/groups/{id}/members": {
       "get": {
-        "tags": ["Groups"],
-        "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Get users   Returns a stream of users, filtered according to query parameters",
         "parameters": [
           {
             "in": "query",
@@ -6224,7 +6784,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6256,7 +6817,9 @@
     },
     "/{realm}/groups/{id}/role-mappings": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get role mappings",
         "responses": {
           "2XX": {
@@ -6295,7 +6858,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
           "2XX": {
@@ -6305,7 +6870,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6314,7 +6880,9 @@
         }
       },
       "post": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
           "content": {
@@ -6336,7 +6904,9 @@
         }
       },
       "delete": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
           "content": {
@@ -6390,7 +6960,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
           "2XX": {
@@ -6400,7 +6972,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6441,7 +7014,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "parameters": [
           {
@@ -6462,7 +7037,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6503,7 +7079,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/realm": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get realm-level role mappings",
         "responses": {
           "2XX": {
@@ -6513,7 +7091,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6522,7 +7101,9 @@
         }
       },
       "post": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
           "description": "Roles to add",
@@ -6545,7 +7126,9 @@
         }
       },
       "delete": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Delete realm-level role mappings",
         "requestBody": {
           "content": {
@@ -6590,7 +7173,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/realm/available": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
           "2XX": {
@@ -6600,7 +7185,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6632,7 +7218,9 @@
     },
     "/{realm}/groups/{id}/role-mappings/realm/composite": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "parameters": [
           {
@@ -6653,7 +7241,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6685,7 +7274,9 @@
     },
     "/{realm}/identity-provider/import-config": {
       "post": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Import identity provider from uploaded JSON file",
         "responses": {
           "2XX": {
@@ -6716,7 +7307,9 @@
     },
     "/{realm}/identity-provider/instances": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get identity providers",
         "responses": {
           "2XX": {
@@ -6726,7 +7319,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IdentityProviderRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6735,7 +7329,9 @@
         }
       },
       "post": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Create a new identity provider",
         "requestBody": {
           "description": "JSON body",
@@ -6769,7 +7365,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get the identity provider",
         "responses": {
           "2XX": {
@@ -6785,7 +7383,9 @@
         }
       },
       "put": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Update the identity provider",
         "requestBody": {
           "content": {
@@ -6804,7 +7404,9 @@
         }
       },
       "delete": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Delete the identity provider",
         "responses": {
           "2XX": {
@@ -6836,7 +7438,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}/export": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Export public broker configuration for identity provider",
         "parameters": [
           {
@@ -6879,7 +7483,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}/management/permissions": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -6895,7 +7501,9 @@
         }
       },
       "put": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
@@ -6944,7 +7552,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}/mapper-types": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get mapper types for identity provider",
         "responses": {
           "2XX": {
@@ -6976,7 +7586,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}/mappers": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get mappers for identity provider",
         "responses": {
           "2XX": {
@@ -6986,7 +7598,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IdentityProviderMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6995,7 +7608,9 @@
         }
       },
       "post": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Add a mapper to identity provider",
         "requestBody": {
           "content": {
@@ -7037,7 +7652,9 @@
     },
     "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get mapper by id for the identity provider",
         "responses": {
           "2XX": {
@@ -7053,7 +7670,9 @@
         }
       },
       "put": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Update a mapper for the identity provider",
         "requestBody": {
           "content": {
@@ -7072,7 +7691,9 @@
         }
       },
       "delete": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Delete a mapper for the identity provider",
         "responses": {
           "2XX": {
@@ -7114,7 +7735,9 @@
     },
     "/{realm}/identity-provider/providers/{provider_id}": {
       "get": {
-        "tags": ["Identity Providers"],
+        "tags": [
+          "Identity Providers"
+        ],
         "summary": "Get identity providers",
         "responses": {
           "2XX": {
@@ -7147,7 +7770,9 @@
     },
     "/{realm}/keys": {
       "get": {
-        "tags": ["Key"],
+        "tags": [
+          "Key"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -7176,7 +7801,9 @@
     },
     "/{realm}/ldap-server-capabilities": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Get LDAP supported extensions.",
         "requestBody": {
           "description": "LDAP configuration",
@@ -7208,9 +7835,208 @@
         }
       ]
     },
+    "/{realm}/localization": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/localization/{locale}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Import localization from uploaded JSON file",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "locale",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/localization/{locale}/{key}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "locale",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/logout-all": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Removes all user sessions.",
         "responses": {
           "2XX": {
@@ -7233,7 +8059,9 @@
     },
     "/{realm}/partial-export": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Partial export of existing realm into a JSON file.",
         "parameters": [
           {
@@ -7281,7 +8109,9 @@
     },
     "/{realm}/partialImport": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Partial import from a JSON file to an existing realm.",
         "requestBody": {
           "content": {
@@ -7314,7 +8144,9 @@
     },
     "/{realm}/push-revocation": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Push the realm’s revocation policy to any client that has an admin url associated with it.",
         "responses": {
           "2XX": {
@@ -7337,7 +8169,9 @@
     },
     "/{realm}/roles": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get all roles for the realm or client",
         "parameters": [
           {
@@ -7381,7 +8215,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
                 }
               }
             }
@@ -7389,7 +8227,9 @@
         }
       },
       "post": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Create a new role for the realm or client",
         "requestBody": {
           "content": {
@@ -7422,7 +8262,9 @@
     },
     "/{realm}/roles-by-id/{role-id}": {
       "get": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Get a specific role’s representation",
         "responses": {
           "2XX": {
@@ -7438,7 +8280,9 @@
         }
       },
       "put": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Update the role",
         "requestBody": {
           "content": {
@@ -7457,7 +8301,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Delete the role",
         "responses": {
           "2XX": {
@@ -7490,7 +8336,9 @@
     },
     "/{realm}/roles-by-id/{role-id}/composites": {
       "get": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
         "responses": {
           "2XX": {
@@ -7500,7 +8348,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7509,7 +8358,9 @@
         }
       },
       "post": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Make the role a composite role by associating some child roles",
         "requestBody": {
           "content": {
@@ -7531,7 +8382,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Remove a set of roles from the role’s composite",
         "requestBody": {
           "description": "A set of roles to be removed",
@@ -7578,7 +8431,9 @@
     },
     "/{realm}/roles-by-id/{role-id}/composites/clients/{clientUuid}": {
       "get": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Get client-level roles for the client that are in the role’s composite",
         "responses": {
           "2XX": {
@@ -7588,7 +8443,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7629,7 +8485,9 @@
     },
     "/{realm}/roles-by-id/{role-id}/composites/realm": {
       "get": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Get realm-level roles that are in the role’s composite",
         "responses": {
           "2XX": {
@@ -7639,7 +8497,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7671,7 +8530,9 @@
     },
     "/{realm}/roles-by-id/{role-id}/management/permissions": {
       "get": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -7687,7 +8548,9 @@
         }
       },
       "put": {
-        "tags": ["Roles (by ID)"],
+        "tags": [
+          "Roles (by ID)"
+        ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
@@ -7736,7 +8599,9 @@
     },
     "/{realm}/roles/{role-name}": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get a role by name",
         "responses": {
           "2XX": {
@@ -7752,7 +8617,9 @@
         }
       },
       "put": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Update a role by name",
         "requestBody": {
           "content": {
@@ -7771,7 +8638,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Delete a role by name",
         "responses": {
           "2XX": {
@@ -7804,7 +8673,9 @@
     },
     "/{realm}/roles/{role-name}/composites": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get composites of the role",
         "responses": {
           "2XX": {
@@ -7814,7 +8685,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7823,7 +8695,9 @@
         }
       },
       "post": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Add a composite to the role",
         "requestBody": {
           "content": {
@@ -7845,7 +8719,9 @@
         }
       },
       "delete": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
           "description": "roles to remove",
@@ -7892,7 +8768,9 @@
     },
     "/{realm}/roles/{role-name}/composites/clients/{clientUuid}": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get client-level roles for the client that are in the role’s composite",
         "responses": {
           "2XX": {
@@ -7902,7 +8780,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7944,7 +8823,9 @@
     },
     "/{realm}/roles/{role-name}/composites/realm": {
       "get": {
-        "tags": ["Roles"],
+        "tags": [
+          "Roles"
+        ],
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
           "2XX": {
@@ -7954,7 +8835,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7987,13 +8869,15 @@
     },
     "/{realm}/roles/{role-name}/groups": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return List of Groups that have the specified role name",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of groups that have the specified role name",
         "parameters": [
           {
             "in": "query",
             "name": "briefRepresentation",
-            "description": "if false, return a full representation of the GroupRepresentation objects",
+            "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
             "schema": {
               "type": "boolean"
             },
@@ -8002,6 +8886,7 @@
           {
             "in": "query",
             "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8011,6 +8896,7 @@
           {
             "in": "query",
             "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8026,7 +8912,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8048,6 +8935,7 @@
         {
           "in": "path",
           "name": "role-name",
+          "description": "the role name.",
           "required": true,
           "schema": {
             "type": "string"
@@ -8058,8 +8946,10 @@
     },
     "/{realm}/roles/{role-name}/management/permissions": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
             "description": "success",
@@ -8074,8 +8964,10 @@
         }
       },
       "put": {
-        "tags": ["Roles"],
-        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
         "requestBody": {
           "content": {
             "application/json": {
@@ -8123,12 +9015,15 @@
     },
     "/{realm}/roles/{role-name}/users": {
       "get": {
-        "tags": ["Roles"],
-        "summary": "Return List of Users that have the specified role name",
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of users that have the specified role name.",
         "parameters": [
           {
             "in": "query",
             "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8138,6 +9033,7 @@
           {
             "in": "query",
             "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8153,7 +9049,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8175,6 +9072,7 @@
         {
           "in": "path",
           "name": "role-name",
+          "description": "the role name.",
           "required": true,
           "schema": {
             "type": "string"
@@ -8185,7 +9083,9 @@
     },
     "/{realm}/sessions/{session}": {
       "delete": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Remove a specific user session.",
         "responses": {
           "2XX": {
@@ -8217,7 +9117,9 @@
     },
     "/{realm}/testLDAPConnection": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "summary": "Test LDAP connection",
         "requestBody": {
           "content": {
@@ -8250,7 +9152,9 @@
     },
     "/{realm}/testSMTPConnection": {
       "post": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -8283,7 +9187,9 @@
     },
     "/{realm}/user-storage/{id}/name": {
       "get": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328",
         "responses": {
           "2XX": {
@@ -8323,7 +9229,9 @@
     },
     "/{realm}/user-storage/{id}/remove-imported-users": {
       "post": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Remove imported users",
         "responses": {
           "2XX": {
@@ -8355,7 +9263,9 @@
     },
     "/{realm}/user-storage/{id}/sync": {
       "post": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Trigger sync of users   Action can be \"triggerFullSync\" or \"triggerChangedUsersSync\"",
         "parameters": [
           {
@@ -8404,7 +9314,9 @@
     },
     "/{realm}/user-storage/{id}/unlink-users": {
       "post": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Unlink imported users from a storage provider",
         "responses": {
           "2XX": {
@@ -8436,7 +9348,9 @@
     },
     "/{realm}/user-storage/{parentId}/mappers/{id}/sync": {
       "post": {
-        "tags": ["User Storage Provider"],
+        "tags": [
+          "User Storage Provider"
+        ],
         "summary": "Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is \"fedToKeycloak\" or \"keycloakToFed\"",
         "parameters": [
           {
@@ -8494,12 +9408,15 @@
     },
     "/{realm}/users": {
       "get": {
-        "tags": ["Users"],
-        "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get users   Returns a stream of users, filtered according to query parameters",
         "parameters": [
           {
             "in": "query",
             "name": "briefRepresentation",
+            "description": "Boolean which defines whether brief representations are returned (default: false)",
             "schema": {
               "type": "boolean"
             },
@@ -8508,8 +9425,18 @@
           {
             "in": "query",
             "name": "email",
+            "description": "A String contained in email, or the complete email, if param \"exact\" is true",
             "schema": {
               "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "emailVerified",
+            "description": "whether the email has been verified",
+            "schema": {
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -8525,6 +9452,7 @@
           {
             "in": "query",
             "name": "exact",
+            "description": "Boolean which defines whether the params \"last\", \"first\", \"email\" and \"username\" must match exactly",
             "schema": {
               "type": "boolean"
             },
@@ -8533,6 +9461,7 @@
           {
             "in": "query",
             "name": "first",
+            "description": "Pagination offset",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8542,6 +9471,25 @@
           {
             "in": "query",
             "name": "firstName",
+            "description": "A String contained in firstName, or the complete firstName, if param \"exact\" is true",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "idpAlias",
+            "description": "The alias of an Identity Provider linked to the user",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "idpUserId",
+            "description": "The userId at an Identity Provider linked to the user",
             "schema": {
               "type": "string"
             },
@@ -8550,6 +9498,7 @@
           {
             "in": "query",
             "name": "lastName",
+            "description": "A String contained in lastName, or the complete lastName, if param \"exact\" is true",
             "schema": {
               "type": "string"
             },
@@ -8577,6 +9526,7 @@
           {
             "in": "query",
             "name": "username",
+            "description": "A String contained in username, or the complete username, if param \"exact\" is true",
             "schema": {
               "type": "string"
             },
@@ -8591,7 +9541,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8600,7 +9551,9 @@
         }
       },
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Create a new user   Username must be unique.",
         "requestBody": {
           "content": {
@@ -8633,7 +9586,9 @@
     },
     "/{realm}/users-management-permissions": {
       "get": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -8648,7 +9603,9 @@
         }
       },
       "put": {
-        "tags": ["Realms Admin"],
+        "tags": [
+          "Realms Admin"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -8687,7 +9644,9 @@
     },
     "/{realm}/users/count": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Returns the number of users that match the given criteria.",
         "parameters": [
           {
@@ -8696,6 +9655,14 @@
             "description": "email filter",
             "schema": {
               "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "emailVerified",
+            "schema": {
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -8763,9 +9730,62 @@
         }
       ]
     },
+    "/{realm}/users/profile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/users/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get representation of the user",
         "responses": {
           "2XX": {
@@ -8781,7 +9801,9 @@
         }
       },
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Update the user",
         "requestBody": {
           "content": {
@@ -8800,7 +9822,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Delete the user",
         "responses": {
           "2XX": {
@@ -8833,7 +9857,9 @@
     },
     "/{realm}/users/{id}/configured-user-storage-credential-types": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Return credential types, which are provided by the user storage where user is stored.",
         "responses": {
           "2XX": {
@@ -8843,7 +9869,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8876,7 +9903,9 @@
     },
     "/{realm}/users/{id}/consents": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get consents granted by the user",
         "responses": {
           "2XX": {
@@ -8920,7 +9949,9 @@
     },
     "/{realm}/users/{id}/consents/{client}": {
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Revoke consent and offline tokens for particular client from user",
         "responses": {
           "2XX": {
@@ -8963,7 +9994,9 @@
     },
     "/{realm}/users/{id}/credentials": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -8972,7 +10005,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CredentialRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9005,7 +10039,9 @@
     },
     "/{realm}/users/{id}/credentials/{credentialId}": {
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Remove a credential for a user",
         "responses": {
           "2XX": {
@@ -9047,7 +10083,9 @@
     },
     "/{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Move a credential to a position behind another credential",
         "responses": {
           "2XX": {
@@ -9100,7 +10138,9 @@
     },
     "/{realm}/users/{id}/credentials/{credentialId}/moveToFirst": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Move a credential to a first position in the credentials list of the user",
         "responses": {
           "2XX": {
@@ -9143,7 +10183,9 @@
     },
     "/{realm}/users/{id}/credentials/{credentialId}/userLabel": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Update a credential label for a user",
         "requestBody": {
           "content": {
@@ -9195,7 +10237,9 @@
     },
     "/{realm}/users/{id}/disable-credential-types": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Disable all credentials for a user of a specific type",
         "requestBody": {
           "content": {
@@ -9241,7 +10285,9 @@
     },
     "/{realm}/users/{id}/execute-actions-email": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
         "parameters": [
           {
@@ -9318,7 +10364,9 @@
     },
     "/{realm}/users/{id}/federated-identity": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get social logins associated with the user",
         "responses": {
           "2XX": {
@@ -9328,7 +10376,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/FederatedIdentityRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9361,7 +10410,9 @@
     },
     "/{realm}/users/{id}/federated-identity/{provider}": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Add a social login provider to the user",
         "requestBody": {
           "content": {
@@ -9380,7 +10431,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Remove a social login provider from user",
         "responses": {
           "2XX": {
@@ -9423,7 +10476,9 @@
     },
     "/{realm}/users/{id}/groups": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -9468,7 +10523,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9501,7 +10557,9 @@
     },
     "/{realm}/users/{id}/groups/count": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "parameters": [
           {
             "in": "query",
@@ -9551,7 +10609,9 @@
     },
     "/{realm}/users/{id}/groups/{groupId}": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -9559,7 +10619,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -9600,7 +10662,9 @@
     },
     "/{realm}/users/{id}/impersonation": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Impersonate the user",
         "responses": {
           "2XX": {
@@ -9641,7 +10705,9 @@
     },
     "/{realm}/users/{id}/logout": {
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.",
         "responses": {
           "2XX": {
@@ -9674,7 +10740,9 @@
     },
     "/{realm}/users/{id}/offline-sessions/{clientUuid}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get offline sessions associated with the user and client",
         "responses": {
           "2XX": {
@@ -9684,7 +10752,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9726,7 +10795,9 @@
     },
     "/{realm}/users/{id}/reset-password": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Set up a new password for the user.",
         "requestBody": {
           "description": "The representation must contain a rawPassword with the plain-text password",
@@ -9770,7 +10841,9 @@
     },
     "/{realm}/users/{id}/role-mappings": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get role mappings",
         "responses": {
           "2XX": {
@@ -9810,7 +10883,9 @@
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
           "2XX": {
@@ -9820,7 +10895,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9829,7 +10905,9 @@
         }
       },
       "post": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
           "content": {
@@ -9851,7 +10929,9 @@
         }
       },
       "delete": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
           "content": {
@@ -9906,7 +10986,9 @@
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}/available": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
           "2XX": {
@@ -9916,7 +10998,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9958,7 +11041,9 @@
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
       "get": {
-        "tags": ["Client Role Mappings"],
+        "tags": [
+          "Client Role Mappings"
+        ],
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "parameters": [
           {
@@ -9979,7 +11064,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10021,7 +11107,9 @@
     },
     "/{realm}/users/{id}/role-mappings/realm": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get realm-level role mappings",
         "responses": {
           "2XX": {
@@ -10031,7 +11119,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10040,7 +11129,9 @@
         }
       },
       "post": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
           "description": "Roles to add",
@@ -10063,7 +11154,9 @@
         }
       },
       "delete": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Delete realm-level role mappings",
         "requestBody": {
           "content": {
@@ -10109,7 +11202,9 @@
     },
     "/{realm}/users/{id}/role-mappings/realm/available": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
           "2XX": {
@@ -10119,7 +11214,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10152,7 +11248,9 @@
     },
     "/{realm}/users/{id}/role-mappings/realm/composite": {
       "get": {
-        "tags": ["Role Mapper"],
+        "tags": [
+          "Role Mapper"
+        ],
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "parameters": [
           {
@@ -10173,7 +11271,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10206,7 +11305,9 @@
     },
     "/{realm}/users/{id}/send-verify-email": {
       "put": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
         "parameters": [
           {
@@ -10259,7 +11360,9 @@
     },
     "/{realm}/users/{id}/sessions": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get sessions associated with the user",
         "responses": {
           "2XX": {
@@ -10269,7 +11372,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10346,7 +11450,15 @@
           },
           "category": {
             "type": "string",
-            "enum": ["INTERNAL", "ACCESS", "ID", "ADMIN", "USERINFO"]
+            "enum": [
+              "INTERNAL",
+              "ACCESS",
+              "ID",
+              "ADMIN",
+              "USERINFO",
+              "LOGOUT",
+              "AUTHORIZATION_RESPONSE"
+            ]
           },
           "claims_locales": {
             "type": "string"
@@ -10433,6 +11545,9 @@
           "session_state": {
             "type": "string"
           },
+          "sid": {
+            "type": "string"
+          },
           "sub": {
             "type": "string"
           },
@@ -10513,53 +11628,6 @@
           }
         }
       },
-      "AdminEventRepresentation": {
-        "type": "object",
-        "properties": {
-          "authDetails": {
-            "$ref": "#/components/schemas/AuthDetailsRepresentation"
-          },
-          "error": {
-            "type": "string"
-          },
-          "operationType": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "representation": {
-            "type": "string"
-          },
-          "resourcePath": {
-            "type": "string"
-          },
-          "resourceType": {
-            "type": "string"
-          },
-          "time": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "AuthDetailsRepresentation": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "string"
-          }
-        }
-      },
       "AuthenticationExecutionExportRepresentation": {
         "type": "object",
         "properties": {
@@ -10570,9 +11638,6 @@
             "type": "string"
           },
           "authenticatorFlow": {
-            "type": "boolean"
-          },
-          "autheticatorFlow": {
             "type": "boolean"
           },
           "flowAlias": {
@@ -10649,9 +11714,6 @@
             "type": "string"
           },
           "authenticatorFlow": {
-            "type": "boolean"
-          },
-          "autheticatorFlow": {
             "type": "boolean"
           },
           "flowId": {
@@ -10810,6 +11872,99 @@
           }
         }
       },
+      "ClientPoliciesRepresentation": {
+        "type": "object",
+        "properties": {
+          "policies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyRepresentation"
+            }
+          }
+        }
+      },
+      "ClientPolicyConditionRepresentation": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string"
+          },
+          "configuration": {
+            "$ref": "#/components/schemas/JsonNode"
+          }
+        }
+      },
+      "ClientPolicyExecutorRepresentation": {
+        "type": "object",
+        "properties": {
+          "configuration": {
+            "$ref": "#/components/schemas/JsonNode"
+          },
+          "executor": {
+            "type": "string"
+          }
+        }
+      },
+      "ClientPolicyRepresentation": {
+        "type": "object",
+        "properties": {
+          "conditions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyConditionRepresentation"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "profiles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ClientProfileRepresentation": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "executors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyExecutorRepresentation"
+            }
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ClientProfilesRepresentation": {
+        "type": "object",
+        "properties": {
+          "globalProfiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientProfileRepresentation"
+            }
+          },
+          "profiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientProfileRepresentation"
+            }
+          }
+        }
+      },
       "ClientRepresentation": {
         "type": "object",
         "properties": {
@@ -10858,12 +12013,6 @@
               "type": "string"
             }
           },
-          "defaultRoles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "description": {
             "type": "string"
           },
@@ -10895,6 +12044,9 @@
           "notBefore": {
             "type": "integer",
             "format": "int32"
+          },
+          "oauth2DeviceAuthorizationGrantEnabled": {
+            "type": "boolean"
           },
           "optionalClientScopes": {
             "type": "array",
@@ -11052,27 +12204,6 @@
           }
         }
       },
-      "ComponentTypeRepresentation": {
-        "type": "object",
-        "properties": {
-          "helpText": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "properties": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConfigPropertyRepresentation"
-            }
-          }
-        }
-      },
       "ConfigPropertyRepresentation": {
         "type": "object",
         "properties": {
@@ -11132,40 +12263,6 @@
             "type": "string"
           },
           "value": {
-            "type": "string"
-          }
-        }
-      },
-      "EventRepresentation": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string"
-          },
-          "details": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "error": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "sessionId": {
-            "type": "string"
-          },
-          "time": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "type": {
-            "type": "string"
-          },
-          "userId": {
             "type": "string"
           }
         }
@@ -11239,6 +12336,140 @@
           }
         }
       },
+      "IDToken": {
+        "type": "object",
+        "properties": {
+          "acr": {
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressClaimSet"
+          },
+          "at_hash": {
+            "type": "string"
+          },
+          "auth_time": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "azp": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string"
+          },
+          "c_hash": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "INTERNAL",
+              "ACCESS",
+              "ID",
+              "ADMIN",
+              "USERINFO",
+              "LOGOUT",
+              "AUTHORIZATION_RESPONSE"
+            ]
+          },
+          "claims_locales": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "email_verified": {
+            "type": "boolean"
+          },
+          "exp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "family_name": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "given_name": {
+            "type": "string"
+          },
+          "iat": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "iss": {
+            "type": "string"
+          },
+          "jti": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "middle_name": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "nbf": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "string"
+          },
+          "otherClaims": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "phone_number": {
+            "type": "string"
+          },
+          "phone_number_verified": {
+            "type": "boolean"
+          },
+          "picture": {
+            "type": "string"
+          },
+          "preferred_username": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "s_hash": {
+            "type": "string"
+          },
+          "session_state": {
+            "type": "string"
+          },
+          "sid": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "typ": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "website": {
+            "type": "string"
+          },
+          "zoneinfo": {
+            "type": "string"
+          }
+        }
+      },
       "IdentityProviderMapperRepresentation": {
         "type": "object",
         "properties": {
@@ -11298,6 +12529,88 @@
             "type": "boolean"
           },
           "trustEmail": {
+            "type": "boolean"
+          }
+        }
+      },
+      "JsonNode": {
+        "type": "object",
+        "properties": {
+          "array": {
+            "type": "boolean"
+          },
+          "bigDecimal": {
+            "type": "boolean"
+          },
+          "bigInteger": {
+            "type": "boolean"
+          },
+          "binary": {
+            "type": "boolean"
+          },
+          "boolean": {
+            "type": "boolean"
+          },
+          "containerNode": {
+            "type": "boolean"
+          },
+          "double": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          },
+          "float": {
+            "type": "boolean"
+          },
+          "floatingPointNumber": {
+            "type": "boolean"
+          },
+          "int": {
+            "type": "boolean"
+          },
+          "integralNumber": {
+            "type": "boolean"
+          },
+          "long": {
+            "type": "boolean"
+          },
+          "missingNode": {
+            "type": "boolean"
+          },
+          "nodeType": {
+            "type": "string",
+            "enum": [
+              "ARRAY",
+              "BINARY",
+              "BOOLEAN",
+              "MISSING",
+              "NULL",
+              "NUMBER",
+              "OBJECT",
+              "POJO",
+              "STRING"
+            ]
+          },
+          "null": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "boolean"
+          },
+          "object": {
+            "type": "boolean"
+          },
+          "pojo": {
+            "type": "boolean"
+          },
+          "short": {
+            "type": "boolean"
+          },
+          "textual": {
+            "type": "boolean"
+          },
+          "valueNode": {
             "type": "boolean"
           }
         }
@@ -11367,6 +12680,13 @@
           },
           "type": {
             "type": "string"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "SIG",
+              "ENC"
+            ]
           }
         }
       },
@@ -11472,7 +12792,11 @@
           },
           "policy": {
             "type": "string",
-            "enum": ["SKIP", "OVERWRITE", "FAIL"]
+            "enum": [
+              "SKIP",
+              "OVERWRITE",
+              "FAIL"
+            ]
           },
           "roles": {
             "$ref": "#/components/schemas/RolesRepresentation"
@@ -11535,7 +12859,11 @@
           },
           "decisionStrategy": {
             "type": "string",
-            "enum": ["AFFIRMATIVE", "UNANIMOUS", "CONSENSUS"]
+            "enum": [
+              "AFFIRMATIVE",
+              "UNANIMOUS",
+              "CONSENSUS"
+            ]
           },
           "description": {
             "type": "string"
@@ -11545,7 +12873,10 @@
           },
           "logic": {
             "type": "string",
-            "enum": ["POSITIVE", "NEGATIVE"]
+            "enum": [
+              "POSITIVE",
+              "NEGATIVE"
+            ]
           },
           "name": {
             "type": "string"
@@ -11758,6 +13089,12 @@
             "type": "integer",
             "format": "int32"
           },
+          "clientPolicies": {
+            "$ref": "#/components/schemas/JsonNode"
+          },
+          "clientProfiles": {
+            "$ref": "#/components/schemas/JsonNode"
+          },
           "clientScopeMappings": {
             "type": "object",
             "additionalProperties": true
@@ -11806,11 +13143,8 @@
               "type": "string"
             }
           },
-          "defaultRoles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "defaultRole": {
+            "$ref": "#/components/schemas/RoleRepresentation"
           },
           "defaultSignatureAlgorithm": {
             "type": "string"
@@ -11914,6 +13248,22 @@
             "format": "int32"
           },
           "notBefore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oAuth2DeviceCodeLifespan": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oAuth2DevicePollingInterval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oauth2DeviceCodeLifespan": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oauth2DevicePollingInterval": {
             "type": "integer",
             "format": "int32"
           },
@@ -12226,7 +13576,11 @@
           },
           "decisionStrategy": {
             "type": "string",
-            "enum": ["AFFIRMATIVE", "UNANIMOUS", "CONSENSUS"]
+            "enum": [
+              "AFFIRMATIVE",
+              "UNANIMOUS",
+              "CONSENSUS"
+            ]
           },
           "id": {
             "type": "string"
@@ -12242,7 +13596,11 @@
           },
           "policyEnforcementMode": {
             "type": "string",
-            "enum": ["ENFORCING", "PERMISSIVE", "DISABLED"]
+            "enum": [
+              "ENFORCING",
+              "PERMISSIVE",
+              "DISABLED"
+            ]
           },
           "resources": {
             "type": "array",
@@ -12737,35 +14095,6 @@
             "type": "string"
           },
           "serviceAccountClientId": {
-            "type": "string"
-          },
-          "username": {
-            "type": "string"
-          }
-        }
-      },
-      "UserSessionRepresentation": {
-        "type": "object",
-        "properties": {
-          "clients": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "lastAccess": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "start": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "userId": {
             "type": "string"
           },
           "username": {
