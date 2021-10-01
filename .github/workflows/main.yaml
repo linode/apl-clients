@@ -15,8 +15,11 @@ jobs:
           fetch-depth: 2
       - name: Check for changes
         id: vars
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if ! bin/diff.sh; then
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          if bin/unpublished-exists.sh; then
             echo 'Changes found, continuing with next step.'
             echo '::set-output name=diff::1'
           else

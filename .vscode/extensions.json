@@ -5,7 +5,10 @@
     "donjayamanne.githistory",
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "mads-hartmann.bash-ide-vscode",
     "quicktype.quicktype",
+    "timonwong.shellcheck",
     "xyz.local-history"
   ]
 }

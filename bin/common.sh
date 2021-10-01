@@ -1,23 +1,28 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 [ -n "$DEBUG" ] && set -x
 
-clients=('harbor/node' 'keycloak/node' 'gitea/node')
+pushd vendors/openapi >/dev/null
+clients=$(find . -type f -name '*.json')
+popd >/dev/null
 
-diff() {
+unpublished_exists() {
   local pkg=$1
-  if git --no-pager log -${#clients[@]} --stat --oneline --name-only | grep "vendors/openapi/$pkg.json" >/dev/null; then
+  local version=$2
+  if [ -z "$(npm info "@redkubes/$pkg-client-node@$version")" ]; then
     return 0
   fi
   return 1
 }
 
-function for_each() {
+for_each() {
   executable=$1
   shift
-  for each in "${clients[@]}"; do
-    pkg=${each%%/*}
-    type=${each##*/}
-    $executable $pkg $type
+  for each in $clients; do
+    local file=${each:2}
+    local pkg=${file%%/*}
+    local remainder=${file##*/}
+    local version=${remainder%.*}
+    $executable $pkg $version
   done
 }

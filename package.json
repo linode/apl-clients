@@ -5,10 +5,22 @@
   },
   "description": "Factory to build and publish openapi clients used in the otomi-clients repo. Part of the Otomi Container Platform.",
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@hkdobrev/run-if-changed": "^0.3.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "git-cz": "^4.7.6",
+    "husky": "^7.0.0",
+    "prettier": "^2.4.1"
   },
   "homepage": "https://github.com/redkubes/otomi-clients#readme",
   "license": "Apache-2.0",
+  "lint-staged": {
+    "*.{json,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
   "main": "",
   "name": "otomi-clients",
   "private": false,
@@ -16,9 +28,18 @@
     "type": "git",
     "url": "git+https://github.com/redkubes/otomi-clients.git"
   },
+  "run-if-changed": {
+    "package-lock.json": "npm install --prefer-offline --no-audit"
+  },
   "scripts": {
     "build": "bin/generate-all.sh",
-    "release": "bin/release-all.sh"
+    "release": "bin/release-all.sh",
+    "prepare": "husky install"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

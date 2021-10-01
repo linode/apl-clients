@@ -6,10 +6,11 @@ org=redkubes
 repo='ssh://git@github.com/redkubes/otomi-clients.git'
 
 vendor="$1"
-type="${2:-node}"
-openapi_doc="vendors/openapi/$vendor.json"
+type="node"
+version="$2"
+openapi_doc="vendors/openapi/$vendor/$version.json"
 registry="https://npm.pkg.github.com/"
-target_dir="vendors/client/$vendor/$type"
+target_dir="vendors/client/$vendor/$version"
 target_package_json="$target_dir/package.json"
 target_npm_name="@$org/$vendor-client-$type"
 
