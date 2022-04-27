@@ -9,7 +9,7 @@ popd >/dev/null
 unpublished_exists() {
   local pkg=$1
   local version=$2
-  if [ -z "$(npm info "@redkubes/$pkg-client-node@$version")" ]; then
+  if [ -n "$(npm info "@redkubes/$pkg-client-node@$version")" ]; then
     return 0
   fi
   return 1

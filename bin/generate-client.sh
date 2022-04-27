@@ -53,7 +53,7 @@ generate_client() {
 }
 
 build_npm_package() {
-    echo "Building $target_npm_name npm pacakge"
+    echo "Building $target_npm_name npm package"
     cd $target_dir
     npm install && npm run build
     cd $DIR
