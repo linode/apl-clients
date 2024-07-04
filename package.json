@@ -1,9 +1,9 @@
 {
   "author": "RedKubes",
   "bugs": {
-    "url": "https://github.com/redkubes/otomi-clients/issues"
+    "url": "https://github.com/linode/apl-clients/issues"
   },
-  "description": "Factory to build and publish openapi clients used in the otomi-clients repo. Part of the Otomi Container Platform.",
+  "description": "Factory to build and publish openapi clients used in the apl-clients repo. Part of the APL Container Platform.",
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
@@ -14,7 +14,7 @@
     "husky": "^7.0.0",
     "prettier": "^2.4.1"
   },
-  "homepage": "https://github.com/redkubes/otomi-clients#readme",
+  "homepage": "https://github.com/linode/apl-clients#readme",
   "license": "Apache-2.0",
   "lint-staged": {
     "*.{json,yml,yaml}": [
@@ -22,11 +22,11 @@
     ]
   },
   "main": "",
-  "name": "otomi-clients",
+  "name": "apl-clients",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/redkubes/otomi-clients.git"
+    "url": "git+https://github.com/linode/apl-clients.git"
   },
   "run-if-changed": {
     "package-lock.json": "npm install --prefer-offline --no-audit"

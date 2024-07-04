@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@redkubes'
+          scope: '@linode'
       - name: Build and publish clients
         if: steps.vars.outputs.diff == 1
         env:

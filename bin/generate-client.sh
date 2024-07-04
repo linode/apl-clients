@@ -2,8 +2,8 @@
 
 set -e
 
-org=redkubes
-repo='ssh://git@github.com/redkubes/otomi-clients.git'
+org=linode
+repo='ssh://git@github.com/linode/apl-clients.git'
 
 vendor="$1"
 type="node"

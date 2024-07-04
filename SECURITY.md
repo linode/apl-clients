@@ -9,5 +9,5 @@ Read the changelog to see what security related issues have been solved, if any.
 
 ## Reporting a Vulnerability
 
-Please reach out to security@redkubes.com for sensitive issues, such as vulnerabilities or incidents.
+Please reach out to security@linode.com for sensitive issues, such as vulnerabilities or incidents.
 Leave your contact details and we will get back to you as soon as we can.
