@@ -21,7 +21,6 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           if bin/unpublished-exists.sh; then
             echo 'Changes found, continuing with next step.'
-            echo '::set-output name=diff::1'
           else
             echo 'No changes found, skipping!'
             echo '::set-output name=diff::0'
@@ -31,7 +30,7 @@ jobs:
         with:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@redkubes'
+          scope: '@linode'
       - name: Build and publish clients
         if: steps.vars.outputs.diff == 1
         env:
