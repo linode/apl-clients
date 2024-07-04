@@ -1,8 +1,6 @@
-# Otomi Clients
+# APL Clients
 
-Part of [Red Kubes](https://redkubes.com)' Otomi Container Platform.
-
-Factory to build and publish openapi clients used in the [redkubes/otomi-tasks](https://github.com/redkubes/otomi-tasks) repo.
+Factory to build and publish openapi clients used in the [linode/apl-tasks](https://github.com/linode/apl-tasks) repo. Part of APL - Application Platform for LKE (Linode Kubernetes Engine).
 
 ## Generate openapi clients for vendors
 
