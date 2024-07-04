@@ -12,6 +12,7 @@ openapi_doc="vendors/openapi/$vendor/$version.json"
 registry="https://npm.pkg.github.com/"
 target_dir="vendors/client/$vendor/$version"
 target_package_json="$target_dir/package.json"
+target_tsconfig_json="$target_dir/tsconfig.json"
 target_npm_name="@$org/$vendor-client-$type"
 
 validate() {
@@ -52,6 +53,14 @@ generate_client() {
     mv /tmp/pkg.json $target_package_json
 }
 
+set_tsconfig_json() {
+    echo "Updating  $target_tsconfig_json file..."
+    jq \
+    'del(.compilerOptions.suppressImplicitAnyIndexErrors)' \
+    $target_tsconfig_json > tsconfig.tmp.json \
+    && mv tsconfig.tmp.json $target_tsconfig_json
+}
+
 build_npm_package() {
     echo "Building $target_npm_name npm package"
     cd $target_dir
@@ -62,6 +71,7 @@ build_npm_package() {
 validate
 generate_client 
 set_package_json
+set_tsconfig_json
 build_npm_package
 
 echo "The client code has been generated at $target_dir/ directory"
