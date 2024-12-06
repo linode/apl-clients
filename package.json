@@ -5,14 +5,14 @@
   },
   "description": "Factory to build and publish openapi clients used in the apl-clients repo. Part of the APL Container Platform.",
   "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@hkdobrev/run-if-changed": "^0.3.1",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.2.0",
-    "git-cz": "^4.7.6",
-    "husky": "^7.0.0",
-    "prettier": "^2.4.1"
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@hkdobrev/run-if-changed": "^0.6.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "git-cz": "^4.9.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2"
   },
   "homepage": "https://github.com/linode/apl-clients#readme",
   "license": "Apache-2.0",
@@ -34,7 +34,7 @@
   "scripts": {
     "build": "bin/generate-all.sh",
     "release": "bin/release-all.sh",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "version": "0.1.0",
   "config": {
