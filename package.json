@@ -15,6 +15,10 @@
     "prettier": "^3.4.2"
   },
   "homepage": "https://github.com/linode/apl-clients#readme",
+  "engines": {
+    "node": ">=20 <21",
+    "npm": "^10"
+  },
   "license": "Apache-2.0",
   "lint-staged": {
     "*.{json,yml,yaml}": [
