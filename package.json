@@ -7,7 +7,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
-    "@hkdobrev/run-if-changed": "^0.6.1",
+    "@hkdobrev/run-if-changed": "^0.6.3",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
