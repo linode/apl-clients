@@ -25,7 +25,7 @@ jobs:
             echo 'No changes found, skipping!'
             echo '::set-output name=diff::0'
           fi
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         if: steps.vars.outputs.diff == 1
         with:
           node-version: '20'
