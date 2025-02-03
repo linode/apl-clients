@@ -5,7 +5,7 @@
   },
   "description": "Factory to build and publish openapi clients used in the apl-clients repo. Part of the APL Container Platform.",
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@hkdobrev/run-if-changed": "^0.6.1",
     "commitizen": "^4.3.1",
