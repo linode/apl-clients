@@ -8,17 +8,17 @@ To build and publish new vendor clients, just download and inspect their openapi
 
 Steps:
 
-- put the api spec in `src/vendors/openapi/*.json`
+- put the api spec in `src/vendors/openapi/$vendor/*.json`
 - add a line in `bin/generate-all.sh` to include your package
 - make sure the credentials used in `.github/workflows/default.yaml` have rights to publish that package
 
 To create one the very first time to see if it all works:
 
 ```bash
-bin/generate-client.sh $vendor $type
+bin/generate-client.sh $vendor $version
 ```
 
-This will generate `vendors/client/$vendor/$type`, with `$type` being the intended environment the client will run in, i.e. `node|axios` (default `node`).
+This will generate `vendors/client/$vendor/$type`, with `$version` being the version number according to the file stored.
 
 The above script uses openapi-generator tool for typescript. Read about more typescript options at: <https://openapi-generator.tech/docs/generators/typescript-node>
 
