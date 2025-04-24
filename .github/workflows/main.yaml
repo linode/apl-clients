@@ -1,10 +1,11 @@
 name: Build and publish npm packages
 on:
-  push:
-    branches:
-      - '**'
-    tags-ignore:
-      - '*'
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - 'main'
+#    tags-ignore:
+#      - '*'
 jobs:
   check-build-push-clients:
     runs-on: ubuntu-latest
@@ -21,9 +22,9 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           if bin/unpublished-exists.sh; then
             echo 'Changes found, continuing with next step.'
+            echo "diff=1" >> "$GITHUB_OUTPUT"
           else
             echo 'No changes found, skipping!'
-            echo '::set-output name=diff::0'
           fi
       - uses: actions/setup-node@v4
         if: steps.vars.outputs.diff == 1
