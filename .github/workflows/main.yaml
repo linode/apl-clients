@@ -21,18 +21,19 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           if bin/unpublished-exists.sh; then
             echo 'Changes found, continuing with next step.'
+            echo 'diff=1' >> $GITHUB_OUTPUT
           else
             echo 'No changes found, skipping!'
-            echo '::set-output name=diff::0'
+            echo 'diff=0' >> $GITHUB_OUTPUT
           fi
       - uses: actions/setup-node@v4
-        if: steps.vars.outputs.diff == 1
+        if: steps.vars.outputs.diff == 1 && github.ref == 'refs/heads/main'
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@linode'
       - name: Build and publish clients
-        if: steps.vars.outputs.diff == 1
+        if: steps.vars.outputs.diff == 1 && github.ref == 'refs/heads/main'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
