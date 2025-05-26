@@ -27,13 +27,13 @@ jobs:
             echo '::set-output name=diff::0'
           fi
       - uses: actions/setup-node@v4
-        if: steps.vars.outputs.diff == 1
+        if: steps.vars.outputs.diff == 1 && github.ref == 'refs/heads/main'
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@linode'
       - name: Build and publish clients
-        if: steps.vars.outputs.diff == 1
+        if: steps.vars.outputs.diff == 1 && github.ref == 'refs/heads/main'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
