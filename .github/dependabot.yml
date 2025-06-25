@@ -14,6 +14,14 @@ updates:
       prefix: 'chore(deps)'
     labels:
       - 'dependencies'
+      - 'dependabot'
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   # github-actions
   - package-ecosystem: 'github-actions'
@@ -24,3 +32,11 @@ updates:
       prefix: 'chore(deps)'
     labels:
       - 'dependencies'
+      - 'dependabot'
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
