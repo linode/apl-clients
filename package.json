@@ -12,7 +12,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
     "husky": "^9.1.7",
-    "prettier": "^3.6.1"
+    "prettier": "^3.6.2"
   },
   "homepage": "https://github.com/linode/apl-clients#readme",
   "engines": {
