@@ -1,1 +1,7 @@
-npx run-if-changed
+#!/bin/sh
+
+# Check if package-lock.json changed during rewrite (e.g., git rebase)
+if git diff --name-only HEAD@{1} HEAD 2>/dev/null | grep -q "^package-lock.json$"; then
+  echo "📦 package-lock.json changed, running npm install..."
+  npm install --prefer-offline --no-audit
+fi
