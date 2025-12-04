@@ -6,13 +6,13 @@ org=linode
 repo='ssh://git@github.com/linode/apl-clients.git'
 
 vendor="$1"
-type="node"
+type="fetch"
 version="$2"
 openapi_doc="vendors/openapi/$vendor/$version.json"
+inputfile="tmp/openapi.json"
 registry="https://npm.pkg.github.com/"
 target_dir="vendors/client/$vendor/$version"
 target_package_json="$target_dir/package.json"
-target_tsconfig_json="$target_dir/tsconfig.json"
 target_npm_name="@$org/$vendor-client-$type"
 
 validate() {
@@ -28,19 +28,33 @@ validate() {
 
 }
 
+apply_patch() {
+    mkdir -p tmp
+    if [ "$vendor" == "gitea" ]; then
+        # Rename from renderMarkdownRaw as "raw" suffix is used by generator and causes conflicts
+        # https://github.com/OpenAPITools/openapi-generator/issues/11827
+        jq '.paths."/markdown/raw".post.operationId = "renderRawMarkdown"' $openapi_doc > $inputfile
+    elif [ "$vendor" == "keycloak" ]; then
+        # Remove deprecated endpoint which causes errors
+        jq 'del(.paths."/admin/realms/{realm}/testSMTPConnection")' $openapi_doc > $inputfile
+    else
+        cp "$openapi_doc" "$inputfile"
+    fi
+}
+
 generate_client() {
     echo "Generating client code from openapi specification $openapi_doc..."
     rm -rf $target_dir >/dev/null
     docker run --rm -v $PWD:/local \
     --user 1001:1001 \
     openapitools/openapi-generator-cli generate \
-    -i /local/$openapi_doc \
+    -i /local/$inputfile \
     -o /local/$target_dir \
-    -g typescript-node \
-    --additional-properties supportsES6=true,npmName=$target_npm_name
+    -g typescript-fetch \
+    --additional-properties supportsES6=true,npmName=$target_npm_name,prefixParameterInterfaces=true
 }
 
- set_package_json() {
+set_package_json() {
     echo "Updating  $target_package_json file..."
 
     jq \
@@ -53,14 +67,6 @@ generate_client() {
     mv /tmp/pkg.json $target_package_json
 }
 
-set_tsconfig_json() {
-    echo "Updating  $target_tsconfig_json file..."
-    jq \
-    'del(.compilerOptions.suppressImplicitAnyIndexErrors)' \
-    $target_tsconfig_json > tsconfig.tmp.json \
-    && mv tsconfig.tmp.json $target_tsconfig_json
-}
-
 build_npm_package() {
     echo "Building $target_npm_name npm package"
     cd $target_dir
@@ -69,9 +75,9 @@ build_npm_package() {
 }
 
 validate
+apply_patch
 generate_client 
 set_package_json
-set_tsconfig_json
 build_npm_package
 
 echo "The client code has been generated at $target_dir/ directory"
