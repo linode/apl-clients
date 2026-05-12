@@ -29,7 +29,7 @@ jobs:
       - uses: actions/setup-node@v6
         if: steps.vars.outputs.diff == 1 && github.ref == 'refs/heads/main'
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@linode'
       - name: Build and publish clients
