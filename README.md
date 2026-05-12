@@ -7,7 +7,10 @@ Factory to build and publish openapi clients used in the [linode/apl-tasks](http
 To build and publish new vendor clients, just download and inspect their openapi spec if it is suitable, then integrate it.
 
 Steps:
-
+- locate the updated OpenAPI definition (in browser, as some require authentication):
+  - Gitea: https://gitea.<your-cluster-suffix>/swagger.v1.json
+  - Keycloak: https://www.keycloak.org/docs-api/<version>/rest-api/openapi.json
+  - Harbor: https://harbor.<your-cluster-suffix>/swagger.json
 - put the api spec in `src/vendors/openapi/$vendor/*.json`
 - add a line in `bin/generate-all.sh` to include your package
 - make sure the credentials used in `.github/workflows/default.yaml` have rights to publish that package
