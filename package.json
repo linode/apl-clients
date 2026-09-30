@@ -3,15 +3,20 @@
   "bugs": {
     "url": "https://github.com/linode/apl-clients/issues"
   },
-  "description": "Factory to build and publish openapi clients used in the apl-clients repo. Part of the APL Container Platform.",
+  "description": "Factory to build and publish openapi and gRPC clients used in the apl-clients repo. Part of the APL Container Platform.",
   "devDependencies": {
+    "@bufbuild/protobuf": "^2.14.1",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@grpc/grpc-js": "^1.14.4",
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
+    "grpc-tools": "^1.13.1",
     "husky": "^9.1.7",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "ts-proto": "^2.12.1",
+    "typescript": "5.9.3"
   },
   "homepage": "https://github.com/linode/apl-clients#readme",
   "engines": {
@@ -44,5 +49,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "allowScripts": {
+    "grpc-tools@1.13.1": true,
+    "protobufjs@7.6.6": true
   }
 }
